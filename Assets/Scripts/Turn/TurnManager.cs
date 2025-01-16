@@ -33,12 +33,6 @@ public class TurnManager : MonoBehaviour
     [SerializeField] 
     private int maxEnemyDamage;
 
-    [Space(13)]
-    
-    [Header("Player")]
-    [SerializeField]
-    private Character player;
-
     public void NextTurn()
     {
         if (turnPlayer)
@@ -47,6 +41,11 @@ public class TurnManager : MonoBehaviour
             turnPlayer = false;
             EnemyTurn();
             EnergyManager.Instance.PlusEnergy(5);
+            
+            for (int i = 0; i < 1; i++)
+            {
+                DeckCards.Instance.TakeCard();
+            }
         }
         else
         {
@@ -75,7 +74,7 @@ public class TurnManager : MonoBehaviour
                     break;
                 case 2:
                     int damage = Random.Range(minEnemyDamage, maxEnemyDamage);
-                    player.DamagePlayer(damage);
+                    Character.Instance.DamagePlayer(damage);
                     Debug.Log($"{i} enemy {damage} damage");
                     break;
             }

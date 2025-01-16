@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public static Character Instance { get; private set; }
+
     [Header("Health")]
     [SerializeField]
     private int maxHealth;
@@ -23,6 +25,8 @@ public class Character : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
+        
         currentHealth = maxHealth;
         currentArmour = 0;
         
