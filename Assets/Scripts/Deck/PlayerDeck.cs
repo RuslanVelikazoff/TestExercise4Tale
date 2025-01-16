@@ -43,6 +43,7 @@ public class PlayerDeck : MonoBehaviour
 
     public void OutCard(int index)
     {
+        DiscardDeck.Instance.CardToDiscard(cards[index]);
         cards.RemoveAt(index);
         SpawnCards();
     }

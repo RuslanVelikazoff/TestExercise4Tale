@@ -20,19 +20,27 @@ public class DeckCards : MonoBehaviour
 
     public void TakeCard()
     {
-        int randomCard = Random.Range(0, deck.Count);
-        PlayerDeck.Instance.TakeCard(deck[randomCard]);
-        deck.RemoveAt(randomCard);
-        
-        if (deck.Count <= 0)
+        if (deck.Count > 0)
         {
-            KneadDeck();
+            int randomCard = Random.Range(0, deck.Count);
+            PlayerDeck.Instance.TakeCard(deck[randomCard]);
+            deck.RemoveAt(randomCard);
+
+            if (deck.Count <= 0)
+            {
+                KneadDeck();
+            }
+        }
+        else
+        {
+            Debug.Log("You have all the existing cards in your hands!");
         }
     }
 
     private void KneadDeck()
     {
-        deck = new List<Card>(deckData.GetCards());
+        deck = DiscardDeck.Instance.GetDiscardDeck();
+        DiscardDeck.Instance.ClearDiscardDeck();
         Debug.Log("Knead");
     }
 }
