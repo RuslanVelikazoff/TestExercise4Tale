@@ -252,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 535119896}
   armourSlider: {fileID: 1000348812}
+  armour: {fileID: 1000348810}
 --- !u!1 &183849580
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 1.22, y: 0}
+  m_AnchoredPosition: {x: 1.2200012, y: 0}
   m_SizeDelta: {x: -7.55, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &198076587
@@ -323,7 +324,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 1.22, y: 0}
+  m_AnchoredPosition: {x: 1.2200012, y: 0}
   m_SizeDelta: {x: -7.55, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &298745855
@@ -436,7 +437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 1.22, y: 0}
+  m_AnchoredPosition: {x: 1.2200012, y: 0}
   m_SizeDelta: {x: -7.55, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &339134106
@@ -492,7 +493,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 40
+  currentHealth: 0
   maxArmour: 20
+  currentArmour: 0
   statsUI: {fileID: 112942196}
 --- !u!114 &339134109
 MonoBehaviour:
@@ -585,7 +588,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
   maxArmour: 100
+  currentArmour: 0
   statsUI: {fileID: 1929805355}
 --- !u!114 &343390013
 MonoBehaviour:
@@ -754,7 +759,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 40
+  currentHealth: 0
   maxArmour: 20
+  currentArmour: 0
   statsUI: {fileID: 1891842916}
 --- !u!114 &363807331
 MonoBehaviour:
@@ -847,7 +854,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 40
+  currentHealth: 0
   maxArmour: 20
+  currentArmour: 0
   statsUI: {fileID: 951075087}
 --- !u!114 &418779720
 MonoBehaviour:
@@ -1152,7 +1161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 117.88001}
+  m_AnchoredPosition: {x: 0, y: 117.880005}
   m_SizeDelta: {x: 0, y: -235.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
@@ -1364,9 +1373,65 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 1.22, y: 0}
+  m_AnchoredPosition: {x: 1.2200012, y: 0}
   m_SizeDelta: {x: -7.55, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &745531758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 745531760}
+  - component: {fileID: 745531759}
+  m_Layer: 0
+  m_Name: TurnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &745531759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745531758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6bb969ac24432429b2b8656e989058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnPlayer: 0
+  enemies:
+  - {fileID: 339134108}
+  - {fileID: 418779719}
+  - {fileID: 363807330}
+  minEnemyHealth: 1
+  maxEnemyHealth: 5
+  minEnemyArmour: 1
+  maxEnemyArmour: 5
+  minEnemyDamage: 5
+  maxEnemyDamage: 15
+  player: {fileID: 343390012}
+--- !u!4 &745531760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745531758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &798565323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,7 +1542,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 1.22, y: 0}
+  m_AnchoredPosition: {x: 1.2200012, y: 0}
   m_SizeDelta: {x: -7.55, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &942866631
@@ -1601,6 +1666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 1101586209}
   armourSlider: {fileID: 1647747716}
+  armour: {fileID: 1647747714}
 --- !u!1 &958120354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,7 +1701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 1.22, y: 0}
+  m_AnchoredPosition: {x: 1.2200012, y: 0}
   m_SizeDelta: {x: -7.55, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &970463198
@@ -1882,7 +1948,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2262,7 +2328,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 1.22, y: 0}
+  m_AnchoredPosition: {x: 1.2200012, y: 0}
   m_SizeDelta: {x: -7.55, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1359967730
@@ -2938,7 +3004,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 959.99994, y: 117.88}
+  m_AnchoredPosition: {x: 959.99994, y: 117.880005}
   m_SizeDelta: {x: 1920, y: 235.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1650955987
@@ -3142,7 +3208,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3518,6 +3584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 1514759486}
   armourSlider: {fileID: 1969038422}
+  armour: {fileID: 1969038420}
 --- !u!1 &1929805353
 GameObject:
   m_ObjectHideFlags: 0
@@ -3571,6 +3638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 1806940698}
   armourSlider: {fileID: 1758592257}
+  armour: {fileID: 1758592255}
 --- !u!1 &1942924389
 GameObject:
   m_ObjectHideFlags: 0
@@ -4000,6 +4068,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 1.22, y: 0}
+  m_AnchoredPosition: {x: 1.2200012, y: 0}
   m_SizeDelta: {x: -7.55, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

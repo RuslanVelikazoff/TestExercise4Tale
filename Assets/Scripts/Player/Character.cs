@@ -5,6 +5,7 @@ public class Character : MonoBehaviour
     [Header("Health")]
     [SerializeField]
     private int maxHealth;
+    [SerializeField]
     private int currentHealth;
     
     [Space(13)]
@@ -12,6 +13,7 @@ public class Character : MonoBehaviour
     [Header("Armour")]
     [SerializeField]
     private int maxArmour;
+    [SerializeField]
     private int currentArmour;
 
     [Space(13)]
@@ -32,7 +34,7 @@ public class Character : MonoBehaviour
         if (currentArmour == 0)
         {
             currentHealth -= damage;
-            
+
             if (currentHealth <= 0)
             {
                 currentHealth = 0;

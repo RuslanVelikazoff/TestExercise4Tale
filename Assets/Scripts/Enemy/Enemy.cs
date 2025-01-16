@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [Header("Health")]
     [SerializeField]
     private int maxHealth;
+    [SerializeField]
     private int currentHealth;
     
     [Space(13)]
@@ -13,6 +14,7 @@ public class Enemy : MonoBehaviour
     [Header("Armour")]
     [SerializeField]
     private int maxArmour;
+    [SerializeField]
     private int currentArmour;
 
     [Space(13)]

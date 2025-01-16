@@ -7,6 +7,8 @@ public class CharacterStatsUI : MonoBehaviour
     private Slider healthSlider;
     [SerializeField]
     private Slider armourSlider;
+    [SerializeField] 
+    private GameObject armour;
 
     public void InitializeStatsUI(int maxHealth, int maxArmour)
     {
@@ -14,7 +16,8 @@ public class CharacterStatsUI : MonoBehaviour
         healthSlider.value = maxHealth;
 
         armourSlider.maxValue = maxArmour;
-        armourSlider.value = 0;
+        UpdateArmourBar(0);
+
     }
 
     public void UpdateHealthBar(int currentHealth)
@@ -25,5 +28,13 @@ public class CharacterStatsUI : MonoBehaviour
     public void UpdateArmourBar(int currentArmour)
     {
         armourSlider.value = currentArmour;
+        if (currentArmour <= 0)
+        {
+            armour.SetActive(false);
+        }
+        else
+        {
+            armour.SetActive(true);
+        }
     }
 }
