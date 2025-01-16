@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         statsUI.InitializeStatsUI(maxHealth, maxArmour);
     }
 
-    public void DamagePlayer(int damage)
+    public void DamageEnemy(int damage)
     {
         if (currentArmour == 0)
         {

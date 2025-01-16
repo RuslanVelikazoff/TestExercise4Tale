@@ -46,6 +46,7 @@ public class TurnManager : MonoBehaviour
             GameManager.Instance.SelectEnemy(null);
             turnPlayer = false;
             EnemyTurn();
+            EnergyManager.Instance.PlusEnergy(5);
         }
         else
         {
