@@ -47,14 +47,17 @@ public class Character : MonoBehaviour
         }
         else
         {
-            if (currentArmour - damage <= 0)
+            currentArmour -= damage;
+            
+            if (currentArmour <= 0)
             {
-                currentHealth -= currentArmour - damage;
+                currentHealth += currentArmour;
                 currentArmour = 0;
                 if (currentHealth <= 0)
                 {
                     currentHealth = 0;
-                    GameManager.Instance.LoseGame();
+                    Destroy(this.gameObject);
+                    GameManager.Instance.KillEnemy();
                 }
             }
         }

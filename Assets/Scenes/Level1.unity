@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyText: {fileID: 1305611027}
-  energy: 0
+  energy: 5
 --- !u!114 &286613362
 MonoBehaviour:
   m_ObjectHideFlags: 0

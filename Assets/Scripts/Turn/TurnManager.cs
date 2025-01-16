@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,11 +7,11 @@ public class TurnManager : MonoBehaviour
     [SerializeField]
     private bool turnPlayer = true;
 
-    [Space(13)]
+    [Space(13)] 
     
-    [Header("Enemy")]
-    [SerializeField] 
-    private Enemy[] enemies;
+    [Header("Enemy")] 
+    [SerializeField]
+    private List<Enemy> enemies = new List<Enemy>();
 
     [Space(5)]
     
@@ -32,6 +33,14 @@ public class TurnManager : MonoBehaviour
     private int minEnemyDamage;
     [SerializeField] 
     private int maxEnemyDamage;
+
+    private void Start()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            DeckCards.Instance.TakeCard();
+        }
+    }
 
     public void NextTurn()
     {
@@ -56,7 +65,16 @@ public class TurnManager : MonoBehaviour
     private void EnemyTurn()
     {
         Debug.Log("Enemy turn");
-        for (int i = 0; i < enemies.Length; i++)
+
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (enemies[i] == null)
+            {
+                enemies.RemoveAt(i);
+            }
+        }
+
+        for (int i = 0; i < enemies.Count; i++)
         {
             int enemyAction = Random.Range(0, 3);
 

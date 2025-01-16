@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     private GameObject winPanel;
     [SerializeField] 
     private GameObject losePanel;
-    
 
     private void Awake()
     {

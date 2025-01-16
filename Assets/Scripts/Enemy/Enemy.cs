@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] 
+    private int enemyIndex;
+    
+    [Space(13)]
+    
     [Header("Health")]
     [SerializeField]
     private int maxHealth;
@@ -44,9 +49,11 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            if (currentArmour - damage <= 0)
+            currentArmour -= damage;
+
+            if (currentArmour <= 0)
             {
-                currentHealth -= currentArmour - damage;
+                currentHealth += currentArmour;
                 currentArmour = 0;
                 if (currentHealth <= 0)
                 {
