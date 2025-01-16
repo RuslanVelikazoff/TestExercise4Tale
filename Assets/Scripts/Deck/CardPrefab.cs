@@ -47,7 +47,6 @@ public class CardPrefab : MonoBehaviour
             cardButton.onClick.AddListener(() =>
             {
                 CardAction();
-                Debug.Log("Card");
             });
         }
     }

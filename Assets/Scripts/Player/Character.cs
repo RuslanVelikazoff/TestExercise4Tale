@@ -42,7 +42,7 @@ public class Character : MonoBehaviour
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                //LOSE
+                GameManager.Instance.LoseGame();
             }
         }
         else
@@ -54,7 +54,7 @@ public class Character : MonoBehaviour
                 if (currentHealth <= 0)
                 {
                     currentHealth = 0;
-                    //LOSE
+                    GameManager.Instance.LoseGame();
                 }
             }
         }

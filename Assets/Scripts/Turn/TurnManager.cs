@@ -42,7 +42,7 @@ public class TurnManager : MonoBehaviour
             EnemyTurn();
             EnergyManager.Instance.PlusEnergy(5);
             
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 5; i++)
             {
                 DeckCards.Instance.TakeCard();
             }

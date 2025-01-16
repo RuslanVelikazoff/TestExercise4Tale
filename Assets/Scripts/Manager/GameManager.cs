@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] 
     private int enemyAmount;
+
+    [SerializeField] 
+    private GameObject winPanel;
+    [SerializeField] 
+    private GameObject losePanel;
     
 
     private void Awake()
@@ -46,9 +51,19 @@ public class GameManager : MonoBehaviour
 
         if (enemyAmount == 0)
         {
-            Debug.Log("Win");
+            WinGame();
         }
     }
 
     #endregion
+
+    private void WinGame()
+    {
+        winPanel.SetActive(true);
+    }
+
+    public void LoseGame()
+    {
+        losePanel.SetActive(true);
+    }
 }

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c82b9537d46a00443aa0cbb982e827f7, type: 3}
-  m_Name: ArmourCard
+  m_Name: DamageCard6
   m_EditorClassIdentifier: 
-  isDamageCard: 0
+  isDamageCard: 1
   isHealthCard: 0
-  isArmourCard: 1
-  cardName: Low Armour
-  amount: 1
-  cost: 1
+  isArmourCard: 0
+  cardName: Hard Damage
+  amount: 6
+  cost: 6
