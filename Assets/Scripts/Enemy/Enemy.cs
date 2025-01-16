@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -39,7 +38,8 @@ public class Enemy : MonoBehaviour
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                //Kill
+                Destroy(this.gameObject);
+                GameManager.Instance.KillEnemy();
             }
         }
         else
@@ -51,7 +51,8 @@ public class Enemy : MonoBehaviour
                 if (currentHealth <= 0)
                 {
                     currentHealth = 0;
-                    //Kill
+                    Destroy(this.gameObject);
+                    GameManager.Instance.KillEnemy();
                 }
             }
         }
@@ -90,15 +91,7 @@ public class Enemy : MonoBehaviour
 
     public void SelectEnemy()
     {
-        Button selectEnemy = GetComponent<Button>();
-
-        if (selectEnemy != null)
-        {
-            selectEnemy.onClick.RemoveAllListeners();
-            selectEnemy.onClick.AddListener(() =>
-            {
-                //SelectEnemy
-            });
-        }
+        Debug.Log("Select enemy");
+        GameManager.Instance.SelectEnemy(this);
     }
 }

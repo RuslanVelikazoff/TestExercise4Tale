@@ -38,11 +38,12 @@ public class TurnManager : MonoBehaviour
     [Header("Player")]
     [SerializeField]
     private Character player;
-    
+
     public void NextTurn()
     {
         if (turnPlayer)
         {
+            GameManager.Instance.SelectEnemy(null);
             turnPlayer = false;
             EnemyTurn();
         }
